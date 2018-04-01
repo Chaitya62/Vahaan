@@ -1,48 +1,9 @@
+{% extends 'login/index.html' %}
+{% block content %}
 
 
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <!-- <link rel="shortcut icon" href="images/favicon.png"> -->
-
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./css/mdl.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" type="text/css" href="./css/mdl_select.css">
 <style>
-</style>
-</head>
-<!-- ***************************html********************* -->
-<body>
-
- <style>
 
 
 
@@ -52,7 +13,7 @@
   position:relative;
   margin: 10px auto;
   width: 500px;
-  height: 500px;
+  height: 700px;
   background-color: #fff;
   padding: 10px;
   border-radius: 3px;
@@ -192,7 +153,7 @@ select:focus {
 
 /* ==========  Demo CSS ========== */
 body {
-  padding: 20px;
+ 
   background: #fafafa;
   font-family: 'Roboto','Helvetica','Arial',sans-serif;
 }
@@ -266,45 +227,35 @@ body {
 
   <div class="login-box">
     <div class="lb-header logo">
-        <p id="logo">LIWAY</p>
+        <p id="logo">Vahaan</p>
     </div>
     <div class="lb-header">
 
-      <a href="#" class="active" id="login-box-link">Login</a>
+      <a href="#" class="active" id="login-box-link">Creat New User</a>
+
+
     </div>
    
-    <form class="email-login" action="/login/" method="POST">
+    <form class="email-login" action="/puc/add/" method="POST">
+
+    	{% csrf_token %}
 
        
 
      <!--  <div class="u-form-group"> -->
-         <div class="mdl-textfield mdl-js-textfield">
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" name="username" type="text" id="sample1">
-            <label class="mdl-textfield__label" for="sample1">Username</label>
+            <label class="mdl-textfield__label" for="sample1">months</label>
         </div>
       <!-- </div> -->
       <!-- <div class="u-form-group"> -->
-         <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" name="password"  type="password" id="sample2">
-            <label class="mdl-textfield__label"  for="sample1">Password</label>
-        </div>
-
-        <div class="u-form-group">
          
-      <!-- Standard Select -->
-               <div id="select_country" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
-              <select id="profile_information_form_country_id" name="profile_information_form_country" class="mdl-selectfield__select">
-                <option value="">Jigar</option>
-                <option value="">FUCK</option>
-              </select>
-            </div>
-    
-        </div>
+      
 
       <!-- </div> -->
       <br/> <br/ >
       <div class="u-form-group">
-        <button type="submit" style="background: #424242;">Log in</button>
+        <button type="submit" style="background: #424242;">Create User</button>
       </div>
       <!-- <div class="u-form-group">
         <a href="#" class="forgot-password">Forgot password?</a>
@@ -324,11 +275,4 @@ body {
 
 
 
-<script src="./js/jquery.js"></script>
-    <script src="./js/material.min.js"></script>
-    <script src="./js/mdl_select.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./admin.js"></script>
-</body>
-
-</html>
+{% endblock %}

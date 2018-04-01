@@ -137,6 +137,8 @@ def get_user(request):
 		data['username'] = vuser.user.username
 		data['vehicle_id'] = vuser.id
 
+		request.session['vehicle_id'] = vehicle_id
+
 		TODAY = datetime.datetime.today()
 
 		puc = PUC.objects.filter(endDate__lte=TODAY)
@@ -159,22 +161,29 @@ def get_user(request):
 
 class Signup(View):
 
+
+
+	def get(self, request):
+
+		return render(request, 'login/create_user.html',{ 'items': items})
+
 	def post(self, request):
 
 
 		username = request.POST.get('username',"")
 		password = request.POST.get('password', "")
 		cpassword = request.POST.get('cpassword', "")
-		vehical_type = request.POST.get('vechical-type', "")
+		vehicle_type = request.POST.get('vehicle_type', "")
 		UID = request.POST.get('aadhar', "")
 		phone = request.POST.get('phone',"")
+		reg_no = request.POST.get('reg_no', "")
+
+
+		
 
 
 
 
-
-
-		VehicleUser = VehicleUser(username=username, password=password, vehical_type=vechical_type, UID=UID, phoneNumber=phone)
 
 
 
@@ -183,11 +192,16 @@ class Signup(View):
 
 		user = User.objects.create_user(username, username+"@gmail.com", password)
 
+
+		vehicleUser = VehicleUser(user = user,reg_no=reg_no, vehicle_type=vehicle_type, UID=UID, phoneNumber=phone)
+
+
 		user.save()
+		vehicleUser.save()
 
 		smsClient = SMSClient('9029168990', 'chaitya6262')
 
-		smsClient.send(phoneNumber,'','Your Vahaan : username is '+username+' and  password is '+password)
+		smsClient.send(phone,'Your Vahaan : username is '+username+' and  password is '+password)
 
 		return HttpResponseRedirect('/login/')
 

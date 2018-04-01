@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import PUC
 from login.models import VehicleUser
 from rest_framework.renderers import JSONRenderer
@@ -58,7 +58,7 @@ def put_data(request):
 	if request.method =='POST':
 
 		months = request.POST.get('months', '3')
-		vehicle_id = request.POST.get('vehicle_id', '1')
+		vehicle_id = int(request.session.get('vehicle_id', 1))
 
 
 		TODAY = datetime.date.today()
@@ -68,14 +68,15 @@ def put_data(request):
 
 		# month_id = 3;
 
-		vuser = VehicleUser.objects.find(id=vehicle_id)
+		vuser = VehicleUser.objects.get(id=vehicle_id)
 
 		PUC.objects.filter(user=vuser).delete()
 
-		puc = PUC(user=vuser, months=months, enddate=(TODAY+month_offset))
+		puc = PUC(user=vuser, months=months, endDate=(TODAY+month_offset))
 
-
+		puc.save()
+		return HttpResponseRedirect('/home/')
 
 	else:
 
-		return HttpResponse('Wrong link')
+		return render(request, 'puc/create_puc.html',{'items': ['Home']})
