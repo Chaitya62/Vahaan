@@ -46,6 +46,9 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'LhOXSOaywK02yeCQUjZOnf0N'
 SOCIAL_AUTH_FACEBOOK_KEY = '451821651x33143'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '524fada3c3ca5adgb279da535da1d863'
 
+STRIPE_TEST_PUBLIC_KEY = os.environ.get("STRIPE_TEST_PUBLIC_KEY", "pk_test_iLBf4iTv8aGUymiJ55mXF9JQ")
+STRIPE_TEST_SECRET_KEY = os.environ.get("STRIPE_TEST_SECRET_KEY", "sk_test_43FzOCWbWUuqpiLmY2yXwMYR")
+STRIPE_LIVE_MODE = False
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_IGNORE_DEFAULT_SCOPE = True
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
@@ -62,6 +65,7 @@ INSTALLED_APPS = [
     'puc.apps.PucConfig',
     'django.contrib.admin',
     'django.contrib.auth',
+    'djstripe',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',

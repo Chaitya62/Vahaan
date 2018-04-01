@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
-# Register your models here.
+
+from .models import Toll, TollPayment
 
 admin.site.register([Toll, TollPayment])
