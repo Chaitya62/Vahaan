@@ -1,10 +1,11 @@
+const url = "http://eed1c029.ngrok.io"
+
 $(document).ready(function () {
-    const url = "http://d9bfd181.ngrok.io/puc/get/"
+    
 
-
-    $.post(url, { 'vehicle_id': getCookie('vehicle_id') }, function (d, status) {
+    $.post(url+"/puc/get/", { 'vehicle_id': getCookie('vehicle_id') }, function (d, status) {
         data = JSON.parse(d);
-
+        console.log(data)
         var pucList = `
     <li class="mdl-list__item mdl-list__item--two-line">
     <span class="mdl-list__item-primary-content">
