@@ -24,11 +24,11 @@ class AuthenticationMiddleware(object):
 		
 
 		path=request.path_info.lstrip('/')
-		# url_is_exempt=any(url.match(path) for url in EXEMPT_URLS)
-		# if url_is_exempt!=True:
-		# 	print('checking....')
-		# 	if not request.user.is_authenticated:
-		# 		print('Redirecting .....')
-		# 		return HttpResponseRedirect('/login/')
+		url_is_exempt=any(url.match(path) for url in EXEMPT_URLS)
+		if url_is_exempt!=True:
+			print('checking....')
+			if not request.user.is_authenticated:
+				print('Redirecting .....')
+				return HttpResponseRedirect('/login/')
 		response = self.get_response(request)
 		return response

@@ -157,16 +157,7 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
       <a href="#" class="active" id="login-box-link">Login</a>
       <a href="#" id="signup-box-link">Admin Login</a>
     </div>
-   <!--  <div class="social-login">
-      <a href="{% url 'social:begin' 'facebook' %}">
-        <i class="fa fa-facebook fa-lg"></i>
-        Login in with facebook
-      </a>
-      <a href="{% url 'social:begin' 'google-oauth2' %}">
-        <i class="fa fa-google-plus fa-lg"></i>
-        log in with Google
-      </a>
-    </div> -->
+   
     <form class="email-login" action="/login/" method="POST">
 
     	{% csrf_token %}

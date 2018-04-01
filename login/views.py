@@ -62,21 +62,20 @@ class Login(View):
 
 		user = authenticate(username=username, password=password)
 
+
+
+
+		if user is None:
+			return HttpResponse('Login failed')
+
+		
 		login(request, user)
 
+
 		if admin == "":
-
-
 			print("I WAS HERE")
 			request.session['isAdmin'] = False
-
-			if user is None:
-				return HttpResponse('Login failed')
-
-
 		else:
-
-
 			request.session['isAdmin'] = True
 				
 
