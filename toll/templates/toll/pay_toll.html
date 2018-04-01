@@ -1,4 +1,4 @@
-{% extends 'login/index.html' %}
+{% extends 'login/newIndex.html' %}
 {% block content %}
 
 
@@ -236,7 +236,7 @@ body {
 
     </div>
    
-    <form class="email-login" action="/signup/" method="POST">
+    <form class="email-login" action="/add_toll/" method="POST">
 
     	{% csrf_token %}
 
@@ -247,7 +247,7 @@ body {
         
          <div class="form-group">
                 <div class='input-group form-control date' id='datetimepicker1'>
-                    <input type='date' style="width: 60%; border: none; border-bottom: 1px blue solid;" class="form-control" />
+                    <input type='date' name='date' style="width: 60%; border: none; border-bottom: 1px blue solid;" class="form-control" />
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
@@ -264,13 +264,18 @@ body {
 		('7AXLE+', '7 axle or above') -->
       <!-- Standard Select -->
                <div id="select_country" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
-              <select id="profile_information_form_country_id" name="toll_id" class="  mdl-selectfield__select">
+              <select id="profile_information_form_country_id" name="toll_id" class="  mdl-selectfield__select" style="color:black;">
                 {% for toll in tolls  %}
     
-                <option value="{{ toll.id }}">{{toll.name}}</option>
+                <option value="{{ toll.id }}" style="color:black;">{{toll.name}}</option>
                 
                 {% endfor %}
               </select>
+            </div>
+
+
+            <div style="display:none">
+              <input type="text" name="vehicle_id" value="" id="vehicle">
             </div>
     
         </div>
@@ -278,7 +283,7 @@ body {
       <!-- </div> -->
       <br/> <br/ >
       <div class="u-form-group">
-        <button type="submit" style="background: #424242;">Create User</button>
+        <button type="submit" style="background: #424242;">Pay for toll</button>
       </div>
       <!-- <div class="u-form-group">
         <a href="#" class="forgot-password">Forgot password?</a>
@@ -289,7 +294,28 @@ body {
 
 
   <script>
-    
+  
+  
+
+function getCookie(cname) {
+    // return 1;
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+  console.log(getCookie('vehicle_id'))
+    document.getElementById('vehicle').value = getCookie('vehicle_id');
     
 
 

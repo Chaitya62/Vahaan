@@ -30,7 +30,8 @@ ALLOWED_HOSTS = [
 	'localhost',
 	'thedisappointmentpanda.fun',
     'd9bfd181.ngrok.io',
-    'eed1c029.ngrok.io'
+    'eed1c029.ngrok.io',
+    '59532f6a.ngrok.io',
 ]
 
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from .serializers import TollPaymentSerializer, TollSerializer
 from .models import TollPayment, Toll
 from rest_framework.renderers import JSONRenderer
@@ -39,10 +39,17 @@ def add_toll(request):
 		tollPayment = TollPayment()
 		tollPayment.vehicle_id = request.POST.get('vehicle_id', -1)
 		tollPayment.toll_id = request.POST.get('toll_id', -1)
+		print(tollPayment.vehicle_id)
+		print(tollPayment.toll_id)
 		tollPayment.amount = getTollAmount(tollPayment.vehicle_id, tollPayment.toll_id)
+
+
 		tollPayment.date = request.POST.get('date', -1)
+		
+		print(tollPayment.date)
+
 		tollPayment.save()
-		return HttpResponse("Done")
+		return HttpResponseDirect("/home/")
 
 
 
