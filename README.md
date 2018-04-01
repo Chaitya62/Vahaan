@@ -1,5 +1,3 @@
-.. TODO: Complete the README descriptions and "about" section.{% if False %}{# Hiding GitHub README #}
-
 ![image](https://img.shields.io/travis/edoburu/django-project-template/master.svg?branch=master)
 ![image](https://img.shields.io/codecov/c/github/edoburu/django-project-template/master.svg)
   
@@ -34,52 +32,12 @@ Database Uses:
 Configured URLs:
 
 * ``/home/``
-
-
+* ``/login/``
 
 Templates:
 
 * ``home.html``
-
-Usage
------
-
-Create a Django project:
-
-.. code-block:: bash
-
-    mkdir my-website.com
-    cd my-website.com
-    django-admin.py startproject mywebsite . -e py,rst,example,gitignore,ini,min -n Dockerfile --template=https://github.com/edoburu/django-project-template/archive/master.zip
-
-The layout uses an ``src`` folder.
-This allows you to create folders like ``docs``, ``web``, ``logs``, ``etc`` at the toplevel.
-However, feel free to undo this change.
-
-The remaining instructions - to start the development server - can be found in the generated ``README.rst`` file.
-
-
-Django-fluent template
-----------------------
-
-In a second branch, you'll find a project template for the django-fluent_ CMS:
-
-.. code-block:: bash
-
-    mkdir my-website.com
-    cd my-website.com
-    django-admin.py startproject mywebsite . -e py,rst,example,gitignore,ini,min -n Dockerfile --template=https://github.com/edoburu/django-project-template/archive/django-fluent.zip
-
-
-Optional features
-=================
-
-
-
-Local testing
-=============
-
-
+* ``index.html``
 
 About
 -----
@@ -97,7 +55,7 @@ Prerequisites
 Contributer
 --------
 * [Chaitya Shah](https://github.com/Chaitya62)
-* [Jigar Wala][https://github.com/JigarWala]
+* [Jigar Wala](https://github.com/JigarWala)
 * [Ankit Mani](https://github.com/Ankit-22)
 License
 -------
