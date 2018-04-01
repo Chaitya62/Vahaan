@@ -94,7 +94,7 @@ class Login(View):
 			set_cookie(response,'user_id', vuser.user.id)
 			set_cookie(response, 'vehicle_id',vuser.id)
 
-
+			set_cookie(response, 'isAdmin', 'false')
 
 
 			print("I WAS HERE")

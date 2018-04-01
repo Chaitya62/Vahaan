@@ -49,7 +49,7 @@ def add_toll(request):
 		print(tollPayment.date)
 
 		tollPayment.save()
-		return HttpResponseDirect("/home/")
+		return HttpResponseRedirect("/home/")
 
 
 
