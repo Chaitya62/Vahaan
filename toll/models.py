@@ -21,5 +21,7 @@ class Toll(models.Model):
 class TollPayment(models.Model):
 
 	vehicle = models.ForeignKey(VehicleUser, on_delete = models.CASCADE)
+	toll = models.ForeignKey(Toll, on_delete = models.CASCADE, default = 0)
 	amount = models.IntegerField()
 	date = models.DateField()
+	consumed = models.BooleanField(default  = False)
