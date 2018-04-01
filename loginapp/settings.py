@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
 	'139.59.46.229',
 	'localhost',
-	'thedisappointmentpanda.fun'
+	'thedisappointmentpanda.fun',
+    'd9bfd181.ngrok.io'
 ]
 
 
@@ -162,6 +163,8 @@ LOGIN_EXEMPT_URLS=(
     r'^signup/',
     r'^adminlogin/$',
     r'^view_toll/(?P<id>[0-9]+)/$',
+    r'^puc/',
+    r'^puc/get/',
     r'^add_toll/$',
 )
 

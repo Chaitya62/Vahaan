@@ -31,4 +31,8 @@ class AuthenticationMiddleware(object):
 				print('Redirecting .....')
 				return HttpResponseRedirect('/login/')
 		response = self.get_response(request)
+
+
+		response['Access-Control-Allow-Origin'] = "*"
+
 		return response
