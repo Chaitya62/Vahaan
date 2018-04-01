@@ -191,7 +191,7 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
         <a href="#" class="forgot-password">Forgot password?</a>
       </div> -->
     </form>
-    <form class="email-signup" action="/adminlogin/" method="POST">
+    <form class="email-signup" action="/login/" method="POST">
 
     	{% csrf_token %}
 
@@ -204,6 +204,10 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
          <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input" name="password"  type="password" id="sample2">
         <label class="mdl-textfield__label"  for="sample1">Password</label>
+      </div>
+
+       <div class="mdl-textfield mdl-js-textfield" style="display: none">
+        <input class="mdl-textfield__input" name="stuff"  type="text" value="admin" id="sample2">
       </div>
       <!-- </div> -->
       <br/> <br/ >
