@@ -3,8 +3,9 @@
 
 
 
-	<!-- Event card -->
 <style>
+
+
 
 
 .login-box{
@@ -12,7 +13,7 @@
   position:relative;
   margin: 10px auto;
   width: 500px;
-  height: 500px;
+  height: 700px;
   background-color: #fff;
   padding: 10px;
   border-radius: 3px;
@@ -74,10 +75,10 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   top: 2px;
 }
 .social-login a:first-child{
-  background-color: #49639F;
+  background-color: #757575;
 }
 .social-login a:last-child{
-  background-color: #DF4A32;
+  background-color: #757575;
 }
 .email-login,.email-signup{
   position:relative;
@@ -88,14 +89,87 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   text-align:center;
 }
 .u-form-group{
+
   width:100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
+
+
 .logo{
-	height: 50px;
-	border: none;
+    height: 50px;
+    border: none;
 }
+
+/* ==========  Select Field Variables ========== */
+/* ==========  Select Field ========== */
+/* Style Select Field */
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 4px 0;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.26);
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+
+/* Remove focus */
+select:focus {
+  outline: none;
+}
+
+/* Hide label */
+.mdl-selectfield label {
+  display: none;
+}
+
+/* Use custom arrow */
+.mdl-selectfield select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+}
+.mdl-selectfield:after {
+  position: absolute;
+  top: 0.75em;
+  right: 0.5em;
+  /* Styling the down arrow */
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: .25em solid transparent;
+  border-right: .25em solid transparent;
+  border-top: 0.375em solid rgba(0,0,0, 0.12);
+  pointer-events: none;
+}
+
+/* ==========  Demo CSS ========== */
+body {
+ 
+  background: #fafafa;
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+}
+
+.demo {
+  width: 60px;
+  padding: 20px;
+  margin: 0 auto;
+  top: 50%;
+  margin-top: -2em;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+
 
 /*.u-form-group input[type="email"],
 .u-form-group input[type="password"]{
@@ -134,100 +208,117 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
   font-size: 0.75rem;
 }
 
+#login-box-link{
+    color: #000;
+}
 
 
 #logo{
 
-	font-size: 30px;
-	color: #10FF1F;
-	font-weight: 100;
-	font-style: bold;
-	font-family: Verdana;
+    font-size: 30px;
+    color: #757575;
+    font-weight: 100;
+    font-style: bold;
+    font-family: Verdana;
 }
 </style>
 
 
 
   <div class="login-box">
-  	<div class="lb-header logo">
-  		<p id="logo">LIWAY</p>
-  	</div>
+    <div class="lb-header logo">
+        <p id="logo">Vahaan</p>
+    </div>
     <div class="lb-header">
 
-      <a href="#" class="active" id="login-box-link">Login</a>
-      <a href="#" id="signup-box-link">Admin Login</a>
+      <a href="#" class="active" id="login-box-link">Creat New User</a>
+
+
     </div>
    
-    <form class="email-login" action="/login/" method="POST">
+    <form class="email-login" action="/signup/" method="POST">
 
     	{% csrf_token %}
 
+       
+
      <!--  <div class="u-form-group"> -->
-         <div class="mdl-textfield mdl-js-textfield">
-		    <input class="mdl-textfield__input" name="username" type="text" id="sample1">
-		    <label class="mdl-textfield__label" for="sample1">Username</label>
-  		</div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="username" type="text" id="sample1">
+            <label class="mdl-textfield__label" for="sample1">Username</label>
+        </div>
       <!-- </div> -->
       <!-- <div class="u-form-group"> -->
-         <div class="mdl-textfield mdl-js-textfield">
-		    <input class="mdl-textfield__input" name="password"  type="password" id="sample2">
-		    <label class="mdl-textfield__label"  for="sample1">Password</label>
-  		</div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="password"  type="password" id="sample2">
+            <label class="mdl-textfield__label"  for="sample2">Password</label>
+        </div>
+
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="cpassword"  type="password" id="sample3">
+            <label class="mdl-textfield__label"  for="sample3">Password</label>
+        </div>
+
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="aadhar"  type="text" id="sample4">
+            <label class="mdl-textfield__label"  for="sample4">Aadhar</label>
+        </div>
+
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="phone"  type="text" id="sample5">
+            <label class="mdl-textfield__label"  for="sample5">Phone Number</label>
+        </div>
+
+                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="reg_no"  type="text" id="sample5">
+            <label class="mdl-textfield__label"  for="sample5">Registration Number</label>
+        </div>
+
+
+        <div class="u-form-group">
+         
+       <!--   ('CAR','CAR\\Jeep\\Van'),
+		('LCV', 'LCV'),
+		('BUS', 'BUS\\TRUCK'),
+		('HCM\\EME','HCM\\EME'),
+		('UPTO3AXLE', 'upto 3 axel'),
+		('4-6 AXLE', '4 to 6 axel'),
+		('7AXLE+', '7 axle or above') -->
+      <!-- Standard Select -->
+               <div id="select_country" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+              <select id="profile_information_form_country_id" name="vehicle_type" class="mdl-selectfield__select">
+                <option value="CAR">CAR\JEEP\Van</option>
+                <option value="LCV">LCV</option>
+                <option value="BUS">BUS\TRUCK</option>
+                <option value="HCM\\EME">HCM\EME</option>
+                <option value="Upto 3 Axel">Upto 3 Axel</option>
+                <option value="4-6AXLE">4 to 6 Axel</option>
+                <option value="7AXLE">7 Axle or above</option>
+              </select>
+            </div>
+    
+        </div>
+
       <!-- </div> -->
       <br/> <br/ >
       <div class="u-form-group">
-        <button type="submit">Log in</button>
+        <button type="submit" style="background: #424242;">Create User</button>
       </div>
       <!-- <div class="u-form-group">
         <a href="#" class="forgot-password">Forgot password?</a>
       </div> -->
     </form>
-    <form class="email-signup" action="/login/" method="POST">
-
-    	{% csrf_token %}
-
-       <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" name="username" type="text" id="sample1">
-        <label class="mdl-textfield__label" for="sample1">Username</label>
-      </div>
-      <!-- </div> -->
-      <!-- <div class="u-form-group"> -->
-         <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" name="password"  type="password" id="sample2">
-        <label class="mdl-textfield__label"  for="sample1">Password</label>
-      </div>
-
-       <div class="mdl-textfield mdl-js-textfield" style="display: none">
-        <input class="mdl-textfield__input" name="stuff"  type="text" value="admin" id="sample2">
-      </div>
-      <!-- </div> -->
-      <br/> <br/ >
-      <div class="u-form-group">
-        <button type="submit">Log in</button>
-      </div>
-    	
-      
     
-     </form>
   </div>
 
 
-<script>
-	$(".email-signup").hide();
-$("#signup-box-link").click(function(){
-  $(".email-login").fadeOut(100);
-  $(".email-signup").delay(100).fadeIn(100);
-  $("#login-box-link").removeClass("active");
-  $("#signup-box-link").addClass("active");
-});
-$("#login-box-link").click(function(){
-  $(".email-login").delay(100).fadeIn(100);;
-  $(".email-signup").fadeOut(100);
-  $("#login-box-link").addClass("active");
-  $("#signup-box-link").removeClass("active");
-});
-</script>
+  <script>
+    
+    
 
+
+
+  </script>
 
 
 
