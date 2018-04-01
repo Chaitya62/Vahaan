@@ -98,8 +98,10 @@ def check_pucs():
 	today = datetime.datetime.today()
 	smsClient = SMSClient('9029168990', 'chaitya6262')
 	for puc in PUC.objects.all().filter(Q(endDate__lte=today)):
-		# smsClient.send(puc.user.phoneNumber,"Hello,World!")
-		print("Hello "+puc.user.phoneNumber)
+		message = "Hello, "+puc.user.user.username + " your PUC has expired on " + str(puc.endDate) + " . Please renew it."
+		# print(message)
+		# smsClient.send(puc.user.phoneNumber,"Hello, "+puc.user.user.username + " your PUC has expired on " + str(puc.endDate) + " . Please renew it.")
+		# print("Hello "+puc.user.phoneNumber+" "+puc.user.user.username + " " + str(puc.endDate) + " " + str(smsClient.count()))
 
 class TollConfig(AppConfig):
 	name = 'toll'
