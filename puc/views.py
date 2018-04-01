@@ -5,6 +5,8 @@ from login.models import VehicleUser
 from rest_framework.renderers import JSONRenderer
 from .serializers import PUCSerializer
 from django.views.decorators.csrf import csrf_exempt
+from dateutil.relativedelta import relativedelta
+import datetime
 
 # Create your views here.
 
@@ -59,13 +61,18 @@ def put_data(request):
 		vehicle_id = request.POST.get('vehicle_id', '1')
 
 
+		TODAY = datetime.date.today()
+
+		month_offset = relativedelta(months=int(months))
+
+
 		# month_id = 3;
 
 		vuser = VehicleUser.objects.find(id=vehicle_id)
 
 		PUC.objects.filter(user=vuser).delete()
 
-		puc = PUC(user=vuser, months=months)
+		puc = PUC(user=vuser, months=months, enddate=(TODAY+month_offset))
 
 
 
