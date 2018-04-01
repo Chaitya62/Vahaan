@@ -1,5 +1,5 @@
 from django.db import models
-from login.models import VehicleUser
+from login.models import AadharUser, VehicleUser
 
 # Create your models here.
 

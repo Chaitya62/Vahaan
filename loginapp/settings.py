@@ -107,12 +107,8 @@ WSGI_APPLICATION = 'loginapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hackncode_prod',
-	'USER': 'hackncode',
-	'PASSWORD': '123',
-	'HOST': 'localhost',
-	'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -164,6 +160,7 @@ LOGIN_EXEMPT_URLS=(
     r'^admin/',
     r'^signup/',
     r'^adminlogin/$',
+    r'^view_toll/(?P<id>[0-9]+)/$',
 )
 
 # Static files (CSS, JavaScript, Images)
