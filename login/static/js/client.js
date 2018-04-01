@@ -20,9 +20,10 @@ $(document).ready(function () {
         $("#pucList").append(pucList);
     })
 
-    $.post("",{vehicle_id:getCookie('vehicle_id')},function(data,status){
+    $.get("/view_toll/"+getCookie('vehicle_id')+"/",function(data,status){
 
         tolls=JSON.parse(data);
+        console.log(tolls);
 
 /*         [
             {
@@ -52,18 +53,22 @@ $(document).ready(function () {
             ${ticket.toll.name}
             </h5>
             <p class="card-text">
-            toll location 
+            ${ticket.toll.location}
             </p>
-            <a href="#" class="btn btn-primary" style="position: relative;right:0px;">Pay</a>
-            
+            <p class="card-text">
+            ${ticket.amount} Rs.
+            </p>
+            <p class="card-text">
+            ${ticket.date}
+            </p>
+            <a href="/toll/${ticket.toll.id}" class="btn btn-primary" style="position: relative;right:0px;">View</a>
             </div>
             </div>
             </li>`
-            
         }
-        
+
         tolls.forEach(ticket => {
-            $("tollList").append(getTemplate(ticket));
+            $("#tollList").append(getTemplate(ticket));
         });
     })
 
