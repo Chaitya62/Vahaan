@@ -161,6 +161,7 @@ LOGIN_EXEMPT_URLS=(
     r'^signup/',
     r'^adminlogin/$',
     r'^view_toll/(?P<id>[0-9]+)/$',
+    r'^add_toll/$',
 )
 
 # Static files (CSS, JavaScript, Images)
