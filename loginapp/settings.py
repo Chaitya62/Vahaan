@@ -58,6 +58,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 
 INSTALLED_APPS = [
     'login.apps.LoginConfig',
+    'toll.apps.TollConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,6 +156,7 @@ LOGIN_EXEMPT_URLS=(
     r'^admin/',
     r'^signup/',
     r'^adminlogin/$',
+    r'^view_toll/(?P<id>[0-9]+)/$',
 )
 
 # Static files (CSS, JavaScript, Images)

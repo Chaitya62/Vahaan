@@ -19,9 +19,9 @@ class AadharUser(models.Model):
 
 
 
-class VehicalUser(models.Model):
+class VehicleUser(models.Model):
 
-	VEHICAL_TYPE_CHOICES = (
+	VEHICLE_TYPE_CHOICES = (
 		('CAR','CAR\\Jeep\\Van'),
 		('LCV', 'LCV'),
 		('BUS', 'BUS\\TRUCK'),
@@ -32,6 +32,6 @@ class VehicalUser(models.Model):
 	)
 
 	reg_no = models.CharField(max_length=55)
-	vehical_type = models.CharField(max_length=55, choices=VEHICAL_TYPE_CHOICES)
+	vehicle_type = models.CharField(max_length=55, choices=VEHICLE_TYPE_CHOICES)
 	UID = models.ForeignKey(AadharUser, on_delete=models.CASCADE)
 
