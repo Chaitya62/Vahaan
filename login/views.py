@@ -3,8 +3,11 @@ from django.views.generic import TemplateView, View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
+from puc.models import PUC
+import json
 from .models import VehicleUser
 import datetime
+from django.views.decorators.csrf import csrf_exempt
 from .sms_script import SMSClient
 import loginapp.settings as settings
 
@@ -55,17 +58,10 @@ class Login(View):
 		if request.user.is_authenticated:
 			return HttpResponseRedirect('/home/')
 
-
-
-
-		
-
 		return render(request, 'login/login.html',{'message': 'from login', 'title':'login'})
 
 
 	def post(self, request):
-
-		
 
 
 		username = request.POST.get('username',"")
@@ -74,8 +70,6 @@ class Login(View):
 
 
 		user = authenticate(username=username, password=password)
-
-
 
 
 
@@ -126,6 +120,36 @@ class Logout(View):
 		request.session['logged'] = False
 
 		return HttpResponseRedirect('/login/')
+
+
+
+@csrf_exempt
+def get_user(request):
+
+	if request.method == 'POST':
+
+		reg_no = request.POST.get('reg_no', '')
+
+		vuser = VehicleUser.objects.get(reg_no=reg_no)
+
+		data = dict()
+
+		data['username'] = vuser.user.username
+		data['vehicle_id'] = vuser.id
+
+		TODAY = datetime.datetime.today()
+
+		puc = PUC.objects.filter(endDate__lte=TODAY)
+
+
+		if len(puc) == 0:
+			data['pucPending'] = 'false' 
+		else:
+			data['pucPeding'] = 'true'
+
+	
+	
+		return HttpResponse(json.dumps(data))
 
 
 
