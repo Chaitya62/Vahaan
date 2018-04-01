@@ -157,7 +157,7 @@ def get_user(request):
 
 def get_user_profile(request, user):
 
-	return render(request, 'login/user.html')
+	return render(request, 'login/user.html', {'isAdmin': request.session.get('isAdmin', False)})
 
 
 

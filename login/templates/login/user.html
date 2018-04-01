@@ -36,7 +36,9 @@
             <!-- navbar for user-->
             <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
                 <a class="mdl-navigation__link" href="">Profile</a>
+                {% if not isAdmin %}
                 <a class="mdl-navigation__link" href="">Logout</a>
+                {% endif %}
                 <div class="mdl-layout-spacer"></div>
                 <a class="mdl-navigation__link" href="">
                     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
@@ -51,7 +53,7 @@
                     <!-- Tabs -->
                     <div class="mdl-layout__tab-bar mdl-js-ripple-effect ">
                         <a href="#fixed-tab-1" class="mdl-layout__tab is-active mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">PUC</a>
-                        <a href="#fixed-tab-2" class="mdl-layout__tab mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">Pawti</a>
+                        <!-- <a href="#fixed-tab-2" class="mdl-layout__tab mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">Pawti</a> -->
                         <a href="#fixed-tab-3" class="mdl-layout__tab mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">Toll</a>
                     </div>
                 </header>
@@ -66,13 +68,13 @@
 
                     </section>
                     <!-- ticket kaa list -->
-                    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+                    <!-- <section class="mdl-layout__tab-panel" id="fixed-tab-2">
                         <div class="page-content">
-                            <!-- Your content goes here -->
+                            Your content goes here
                             <ul class="demo-list-two mdl-list" id="ticketList">
                             </ul>
                         </div>
-                    </section>
+                    </section> -->
                     <!-- toll kaa list -->
                     <section class="mdl-layout__tab-panel" id="fixed-tab-3">
                         <div class="page-content">
