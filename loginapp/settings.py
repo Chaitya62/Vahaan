@@ -63,7 +63,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 
 INSTALLED_APPS = [
     'login.apps.LoginConfig',
-    'toll.apps.TollConfig',
     'puc.apps.PucConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -72,7 +71,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django'
+    'social_django',
+    'toll.apps.TollConfig',
 ]
 
 MIDDLEWARE = [
