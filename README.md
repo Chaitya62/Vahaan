@@ -1,9 +1,8 @@
 .. TODO: Complete the README descriptions and "about" section.{% if False %}{# Hiding GitHub README #}
 
-.. image:: https://img.shields.io/travis/edoburu/django-project-template/master.svg?branch=master
-    :target: http://travis-ci.org/edoburu/django-project-template
-.. image:: https://img.shields.io/codecov/c/github/edoburu/django-project-template/master.svg
-    :target: https://codecov.io/github/edoburu/django-project-template?branch=master
+![image](https://img.shields.io/travis/edoburu/django-project-template/master.svg?branch=master)
+![image](https://img.shields.io/codecov/c/github/edoburu/django-project-template/master.svg)
+  
 
 Vahaan
 =======================
@@ -81,13 +80,11 @@ Local testing
 =============
 
 
-{{ project_name|title }} Project
-========================================
 
 About
 -----
 
-Describe your project here.
+Vahaan PUC and Tolls automation
 
 Prerequisites
 -------------
@@ -96,24 +93,6 @@ Prerequisites
 - pip
 - virtualenv (virtualenvwrapper is recommended)
 
-Installation
-------------
-
-To setup a local development environment::
-
-    virtualenv env --prompt="({{ project_name }})"  # or mkvirtualenv {{ project_name }}
-    source env/bin/activate
-
-    cd src
-    make
-
-    cp {{ project_name }}/settings/local.py.example {{ project_name }}/settings/local.py  # To enable debugging
-    edit {{ project_name }}/settings/local.py    # Enter your DB credentials
-    
-    pip install -r requirements.txt
-    
-    ./manage.py migrate
-    ./manage.py runserver
 
 Contributer
 --------
