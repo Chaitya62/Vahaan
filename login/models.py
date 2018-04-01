@@ -35,5 +35,3 @@ class VehicleUser(models.Model):
 	vehicle_type = models.CharField(max_length=55, choices=VEHICLE_TYPE_CHOICES)
 	UID = models.ForeignKey(AadharUser, on_delete=models.CASCADE)
 
-
-	

@@ -19,8 +19,9 @@ def index(request):
 
 	# if not is_logged(request):
 	# 	return HttpResponse('Please login!')
+	isAdmin = request.session.get('isAdmin', False)
 
-	return render(request,'login/home.html',{'loggedin': is_logged(request),'message': 'Hello, World!', 'title': 'HOME', 'items': items})
+	return render(request,'login/home.html',{'loggedin': is_logged(request),'isAdmin': isAdmin,'message': 'Hello, World!', 'title': 'HOME', 'items': items})
 
 
 
@@ -53,22 +54,30 @@ class Login(View):
 
 		
 
+
 		username = request.POST.get('username',"")
 		password = request.POST.get('password', "")
+		admin = request.POST.get('stuff', "")
 
 
 		user = authenticate(username=username, password=password)
 
-		request.session['isAdmin'] = False
+
+
 
 		if user is None:
 			return HttpResponse('Login failed')
 
-
+		
 		login(request, user)
 
 
-		
+		if admin == "":
+			print("I WAS HERE")
+			request.session['isAdmin'] = False
+		else:
+			request.session['isAdmin'] = True
+				
 
 		return HttpResponseRedirect('/home/')
 
@@ -87,49 +96,6 @@ class Logout(View):
 		return HttpResponseRedirect('/login/')
 
 
-class AdminLogin(View):
-	
-
-
-
-	def get(self,request):
-
-		print('here ia am')
-		
-		# checking here to avoid redirect recursion in middleware
-		if request.user.is_authenticated:
-			return HttpResponseRedirect('/home/')
-
-
-		
-
-		return render(request, 'login/login.html',{'message': 'from login','type':'ADMIN', 'title':'login'})
-
-
-	def post(self, request):
-
-		
-
-		username = request.POST.get('username',"")
-		password = request.POST.get('password', "")
-
-
-		user = authenticate(username=username, password=password)
-
-
-
-		if user is None:
-			return HttpResponse('Login failed')
-
-
-		login(request, user)
-
-
-		print("here it is bitch")
-		print(request.session['logged'])
-		request.session['isAdmin'] = True	
-
-		return HttpResponseRedirect('/adminhome/')
 
 
 

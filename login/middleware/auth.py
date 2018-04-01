@@ -17,6 +17,7 @@ class AuthenticationMiddleware(object):
 
 
 		print("Hello: ",request.user.is_authenticated)
+		print("Hello WORDL :", request.session.get('isAdmin', False))
 		# Code to be executed for each request before
 		# the view (and later middleware) are called.
 

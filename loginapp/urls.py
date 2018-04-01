@@ -21,6 +21,4 @@ urlpatterns = [
     path(r'admin/', admin.site.urls),
     re_path(r'^', include('toll.urls')),
     re_path(r'^',include('login.urls')),
-    re_path(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
-
 ]
