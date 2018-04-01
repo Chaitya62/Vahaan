@@ -157,7 +157,24 @@ def get_user(request):
 
 def get_user_profile(request, user):
 
-	return render(request, 'login/user.html', {'isAdmin': request.session.get('isAdmin', False)})
+	try: 
+		user  = User.objects.get(username=user)
+
+	except Exception:
+
+		return HttpResponse('User not found')
+
+	vuser = VehicleUser.objects.get(user=user)
+
+	response = render(request, 'login/user.html', {'isAdmin': request.session.get('isAdmin', False)})
+
+	set_cookie(response,'reg_no', vuser.reg_no)
+	set_cookie(response,'username', vuser.user.username)
+	set_cookie(response,'vehicle_type',vuser.vehicle_type)
+	set_cookie(response,'user_id', vuser.user.id)
+	set_cookie(response, 'vehicle_id',vuser.id)
+
+	return response
 
 
 
