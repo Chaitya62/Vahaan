@@ -15,6 +15,6 @@ class PUC(models.Model):
 	months = models.CharField(max_length=55)
 	endDate = models.DateField(default=datetime.datetime.now())
 	done = models.CharField(max_length=55, default='true')
-	
+
 	# Can include cost maybe	
 
