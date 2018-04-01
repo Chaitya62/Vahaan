@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .serializers import TollPaymentSerializer
-from .models import TollPayment
+from .serializers import TollPaymentSerializer, TollSerializer
+from .models import TollPayment, Toll
 from rest_framework.renderers import JSONRenderer
 from django.views.decorators.csrf import csrf_exempt
 from .utils import getTollAmount
@@ -17,6 +17,19 @@ def get_toll_id(request, id):
 	serializer = TollPaymentSerializer(TollPayment.objects.filter(id=id, consumed = False), many = True)
 	content = JSONRenderer().render(serializer.data)
 	# QR CODE ??
+	return HttpResponse(content)
+
+def consume_toll(request, id):
+	tollPayment = TollPayment.objects.filter(id = id, consumed = False)[0]
+	tollPayment.consumed = True
+	tollPayment.save()
+	return HttpResponse("Done")
+
+@csrf_exempt
+def search(request):
+	searchString = request.POST.get('search', "");
+	serializer = TollSerializer(Toll.objects.filter(name__icontains=searchString), many = True)
+	content = JSONRenderer().render(serializer.data)
 	return HttpResponse(content)
 
 @csrf_exempt
