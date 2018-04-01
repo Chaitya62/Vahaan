@@ -58,6 +58,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 
 INSTALLED_APPS = [
     'login.apps.LoginConfig',
+    'toll.apps.TollConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -19,7 +19,8 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
+    path('tolls/', include('toll.urls')),
     re_path(r'^',include('login.urls')),
     re_path(r'^auth/', include('social_django.urls', namespace='social')),  # <- Here
-   
+
 ]
