@@ -3,7 +3,20 @@ from django.views.generic import TemplateView, View
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
-#from .sms_script import SMSClient
+from .models import VehicleUser
+import datetime
+from .sms_script import SMSClient
+import loginapp.settings as settings
+
+
+
+def set_cookie(response, key, value, days_expire = 7):
+  if days_expire is None:
+    max_age = 365 * 24 * 60 * 60  #one year
+  else:
+    max_age = days_expire * 24 * 60 * 60 
+  expires = datetime.datetime.strftime(datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age), "%a, %d-%b-%Y %H:%M:%S GMT")
+  response.set_cookie(key, value, max_age=max_age, expires=expires, domain=None, secure=None)
 
 
 
@@ -65,6 +78,9 @@ class Login(View):
 
 
 
+
+
+
 		if user is None:
 			return HttpResponse('Login failed')
 
@@ -73,8 +89,24 @@ class Login(View):
 
 
 		if admin == "":
+
+			vuser = VehicleUser.objects.get(user=user)
+
+			response = HttpResponseRedirect('/home/')
+
+			set_cookie(response,'reg_no', vuser.reg_no)
+			set_cookie(response,'username', vuser.user.username)
+			set_cookie(response,'vehicle_type',vuser.vehicle_type)
+			set_cookie(response,'user_id', vuser.user.id)
+			set_cookie(response, 'vehicle_id',vuser.id)
+
+
+
+
 			print("I WAS HERE")
 			request.session['isAdmin'] = False
+
+			return response
 		else:
 			request.session['isAdmin'] = True
 				
@@ -109,6 +141,18 @@ class Signup(View):
 		username = request.POST.get('username',"")
 		password = request.POST.get('password', "")
 		cpassword = request.POST.get('cpassword', "")
+		vehical_type = request.POST.get('vechical-type', "")
+		UID = request.POST.get('aadhar', "")
+		phone = request.POST.get('phone',"")
+
+
+
+
+
+
+		VehicleUser = VehicleUser(username=username, password=password, vehical_type=vechical_type, UID=UID, phoneNumber=phone)
+
+
 
 		
 
@@ -117,9 +161,9 @@ class Signup(View):
 
 		user.save()
 
-		#smsClient = SMSClient('9029168990', 'chaitya6262')
+		smsClient = SMSClient('9029168990', 'chaitya6262')
 
-		#smsClient.send('','Thanks for registering'+username+' your password is '+password)
+		smsClient.send(phoneNumber,'','Your Vahaan : username is '+username+' and  password is '+password)
 
 		return HttpResponseRedirect('/login/')
 

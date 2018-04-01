@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -31,7 +31,10 @@ class VehicleUser(models.Model):
 		('7AXLE+', '7 axle or above')
 	)
 
-	reg_no = models.CharField(max_length=55)
+	user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+	reg_no = models.CharField(max_length=55, default=None)
 	vehicle_type = models.CharField(max_length=55, choices=VEHICLE_TYPE_CHOICES)
-	UID = models.ForeignKey(AadharUser, on_delete=models.CASCADE)
+	UID = models.CharField(max_length=55, default=None)
+	phoneNumber = models.CharField(max_length=55, default="NULL")
+
 
