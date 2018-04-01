@@ -168,6 +168,7 @@ LOGIN_EXEMPT_URLS=(
     r'^puc/get/',
     r'^add_toll/$',
     r'^get/user/$',
+    r'^search_toll/$',
 )
 
 # Static files (CSS, JavaScript, Images)
