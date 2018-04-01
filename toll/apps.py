@@ -1,6 +1,11 @@
 from django.apps import AppConfig
 from threading import Thread
-import sched, time, os
+import time
+from puc.models import PUC
+
+def check_pucs():
+	for puc in PUC.objects.all():
+		
 
 class TollConfig(AppConfig):
 	name = 'toll'
@@ -15,7 +20,7 @@ class TollConfig(AppConfig):
 	@postpone
 	def scheduleTime():
 		while True:
-			# os.system('notify-send "Hello"')
-			time.sleep(60)
+			
+			time.sleep(24*60*60)
 
 	scheduleTime()
