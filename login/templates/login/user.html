@@ -2,43 +2,7 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
- 
- {% if isAdmin %}
-	
-
-	<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">Vahaan</span>
-            <div class="mdl-layout-spacer"></div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-                    <i class="material-icons">search</i>
-                </label>
-                <div class="mdl-textfield__expandable-holder">
-                    <input class="mdl-textfield__input" type="text" id="sample6">
-                    <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
-                </div>
-            </div>
-
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-                <i class="material-icons">more_vert</i>
-            </button>
-            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-                <li class="mdl-menu__item">About</li>
-                <li class="mdl-menu__item">Contact</li>
-                <a href="/logout/"><li class="mdl-menu__item">Logout</li></a>
-            </ul>
-        </div>
-</header>
-<main class="mdl-layout__content mdl-color--grey-100 " id="regUserDiv" >
-</main>
-</div>
-
-
- {% else %}
-	<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Vahaan</span>
@@ -72,7 +36,9 @@
             <!-- navbar for user-->
             <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
                 <a class="mdl-navigation__link" href="">Profile</a>
-                <a class="mdl-navigation__link" href="/logout/">Logout</a>
+                {% if not isAdmin %}
+                <a class="mdl-navigation__link" href="">Logout</a>
+                {% endif %}
                 <div class="mdl-layout-spacer"></div>
                 <a class="mdl-navigation__link" href="">
                     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
@@ -87,6 +53,7 @@
                     <!-- Tabs -->
                     <div class="mdl-layout__tab-bar mdl-js-ripple-effect ">
                         <a href="#fixed-tab-1" class="mdl-layout__tab is-active mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">PUC</a>
+                        <!-- <a href="#fixed-tab-2" class="mdl-layout__tab mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">Pawti</a> -->
                         <a href="#fixed-tab-3" class="mdl-layout__tab mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">Toll</a>
                     </div>
                 </header>
@@ -100,13 +67,19 @@
                         </div>
 
                     </section>
-
+                    <!-- ticket kaa list -->
+                    <!-- <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+                        <div class="page-content">
+                            Your content goes here
+                            <ul class="demo-list-two mdl-list" id="ticketList">
+                            </ul>
+                        </div>
+                    </section> -->
                     <!-- toll kaa list -->
                     <section class="mdl-layout__tab-panel" id="fixed-tab-3">
                         <div class="page-content">
                             <!-- Your content goes here -->
                             <ul class="demo-list-two mdl-list" id="tollList">
-
                             </ul>
                         </div>
                     </section>
@@ -115,10 +88,5 @@
         </main>
     </div>
     </div>
-   {% endif %}
-		
 
-
-  {% endif %}
-
-{% endblock %}
+    {% endblock %}

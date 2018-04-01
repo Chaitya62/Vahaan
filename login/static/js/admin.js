@@ -15,11 +15,10 @@ $("#sample6").keypress(function(e){
              var regUser = `
             <div class="card mt-4">
             <div class="card-body">
-            <h5 class="card-title"><a href="${data}">${data.username}</a></h5>
+            <h5 class="card-title"><a href="/user/${data.username}/">${data.username}</a></h5>
             <p class="card-text"></p>
-            <a href="#" class="btn btn-primary">Puc</a>
-            <a href="#" class="btn btn-primary">Ticketing</a>
-            <a href="#" class="btn btn-primary">Toll</a>
+            <a href="/puc/add/" class="btn btn-primary">Puc</a>
+           
             </div>
             </div>
             `
@@ -31,3 +30,6 @@ $("#sample6").keypress(function(e){
 })
 
 })
+
+// <a href="#" class="btn btn-primary">Ticketing</a>
+// <a href="#" class="btn btn-primary">Toll</a>

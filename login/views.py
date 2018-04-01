@@ -137,7 +137,7 @@ def get_user(request):
 		data['username'] = vuser.user.username
 		data['vehicle_id'] = vuser.id
 
-		request.session['vehicle_id'] = vehicle_id
+		request.session['vehicle_id'] = vuser.id
 
 		TODAY = datetime.datetime.today()
 
@@ -154,6 +154,10 @@ def get_user(request):
 		return HttpResponse(json.dumps(data))
 
 
+
+def get_user_profile(request, user):
+
+	return render(request, 'login/user.html', {'isAdmin': request.session.get('isAdmin', False)})
 
 
 
