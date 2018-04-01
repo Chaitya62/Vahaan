@@ -44,4 +44,11 @@ def add_toll(request):
 		tollPayment.save()
 		return HttpResponse("Done")
 
-	return HttpResponse("404 Not Found")
+
+
+	else:
+
+
+		tolls = Toll.objects.all()
+
+		return render(request, 'toll/pay_toll.html',{'tolls': tolls})
