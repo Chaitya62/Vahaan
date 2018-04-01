@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
 	'139.59.46.229',
 	'localhost',
 	'thedisappointmentpanda.fun',
-    'd9bfd181.ngrok.io'
+    'd9bfd181.ngrok.io',
+    'eed1c029.ngrok.io'
 ]
 
 
@@ -166,6 +167,7 @@ LOGIN_EXEMPT_URLS=(
     r'^puc/',
     r'^puc/get/',
     r'^add_toll/$',
+    r'^get/user/$',
 )
 
 # Static files (CSS, JavaScript, Images)

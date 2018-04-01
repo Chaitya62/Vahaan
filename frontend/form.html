@@ -1,0 +1,325 @@
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- <link rel="shortcut icon" href="images/favicon.png"> -->
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./css/mdl.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./css/mdl_select.css">
+<style>
+</style>
+</head>
+<!-- ***************************html********************* -->
+<body>
+
+ <style>
+
+
+
+
+.login-box{
+ margin-top: 5% !important;
+  position:relative;
+  margin: 10px auto;
+  width: 500px;
+  height: 500px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+}
+
+.lb-header{
+  position:relative;
+  color: #00415d;
+  margin: 5px 5px 10px 5px;
+  padding-bottom:10px;
+  border-bottom: 1px solid #eee;
+  text-align:center;
+  height:28px;
+}
+.lb-header a{
+  margin: 0 25px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.lb-header .active{
+  color: #029f5b;
+  font-size: 18px;
+}
+.social-login{
+  position:relative;
+  float: left;
+  width: 100%;
+  height:auto;
+  padding: 10px 0 15px 0;
+  border-bottom: 1px solid #eee;
+}
+.social-login a{
+  position:relative;
+  float: left;
+  width:calc(40% - 8px);
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 12px;
+  border-radius: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0 3%;
+  text-align:center;
+}
+.social-login a i{
+  position: relative;
+  float: left;
+  width: 20px;
+  top: 2px;
+}
+.social-login a:first-child{
+  background-color: #757575;
+}
+.social-login a:last-child{
+  background-color: #757575;
+}
+.email-login,.email-signup{
+  position:relative;
+  float: left;
+  width: 100%;
+  height:auto;
+  margin-top: 20px;
+  text-align:center;
+}
+.u-form-group{
+
+  width:100%;
+  margin-bottom: 20px;
+}
+
+
+
+.logo{
+    height: 50px;
+    border: none;
+}
+
+/* ==========  Select Field Variables ========== */
+/* ==========  Select Field ========== */
+/* Style Select Field */
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 4px 0;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.26);
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0, 0.12);
+}
+
+/* Remove focus */
+select:focus {
+  outline: none;
+}
+
+/* Hide label */
+.mdl-selectfield label {
+  display: none;
+}
+
+/* Use custom arrow */
+.mdl-selectfield select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+}
+.mdl-selectfield:after {
+  position: absolute;
+  top: 0.75em;
+  right: 0.5em;
+  /* Styling the down arrow */
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: .25em solid transparent;
+  border-right: .25em solid transparent;
+  border-top: 0.375em solid rgba(0,0,0, 0.12);
+  pointer-events: none;
+}
+
+/* ==========  Demo CSS ========== */
+body {
+  padding: 20px;
+  background: #fafafa;
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+}
+
+.demo {
+  width: 60px;
+  padding: 20px;
+  margin: 0 auto;
+  top: 50%;
+  margin-top: -2em;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+
+
+/*.u-form-group input[type="email"],
+.u-form-group input[type="password"]{
+  width: calc(50% - 22px);
+  height:45px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  border-radius: 2px;
+  color: #333;
+  font-size:0.8rem;
+  -webkit-transition:all 0.1s linear;
+  -moz-transition:all 0.1s linear;
+  transition:all 0.1s linear;
+}*/
+.u-form-group input:focus{
+  border-color: #358efb;
+}
+.u-form-group button{
+  width:50%;
+  background-color: #1CB94E;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 14px 0;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.forgot-password{
+  width:50%;
+  text-align: left;
+  text-decoration: underline;
+  color: #888;
+  font-size: 0.75rem;
+}
+
+#login-box-link{
+    color: #000;
+}
+
+
+#logo{
+
+    font-size: 30px;
+    color: #757575;
+    font-weight: 100;
+    font-style: bold;
+    font-family: Verdana;
+}
+</style>
+
+
+
+  <div class="login-box">
+    <div class="lb-header logo">
+        <p id="logo">LIWAY</p>
+    </div>
+    <div class="lb-header">
+
+      <a href="#" class="active" id="login-box-link">Login</a>
+    </div>
+   
+    <form class="email-login" action="/login/" method="POST">
+
+       
+
+     <!--  <div class="u-form-group"> -->
+         <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" name="username" type="text" id="sample1">
+            <label class="mdl-textfield__label" for="sample1">Username</label>
+        </div>
+      <!-- </div> -->
+      <!-- <div class="u-form-group"> -->
+         <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" name="password"  type="password" id="sample2">
+            <label class="mdl-textfield__label"  for="sample1">Password</label>
+        </div>
+
+        <div class="u-form-group">
+         
+      <!-- Standard Select -->
+               <div id="select_country" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+              <select id="profile_information_form_country_id" name="profile_information_form_country" class="mdl-selectfield__select">
+                <option value="">Jigar</option>
+                <option value="">FUCK</option>
+              </select>
+            </div>
+    
+        </div>
+
+      <!-- </div> -->
+      <br/> <br/ >
+      <div class="u-form-group">
+        <button type="submit" style="background: #424242;">Log in</button>
+      </div>
+      <!-- <div class="u-form-group">
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </div> -->
+    </form>
+    
+  </div>
+
+
+
+<script src="./js/jquery.js"></script>
+    <script src="./js/material.min.js"></script>
+    <script src="./js/mdl_select.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./admin.js"></script>
+</body>
+
+</html>

@@ -58,14 +58,10 @@ class Login(View):
 		if request.user.is_authenticated:
 			return HttpResponseRedirect('/home/')
 
-		
-
 		return render(request, 'login/login.html',{'message': 'from login', 'title':'login'})
 
 
 	def post(self, request):
-
-		
 
 
 		username = request.POST.get('username',"")
@@ -74,8 +70,6 @@ class Login(View):
 
 
 		user = authenticate(username=username, password=password)
-
-
 
 
 
