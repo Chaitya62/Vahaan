@@ -23,7 +23,7 @@ def consume_toll(request, id):
 	tollPayment = TollPayment.objects.filter(id = id, consumed = False)[0]
 	tollPayment.consumed = True
 	tollPayment.save()
-	return HttpResponse("Done")
+	return HttpResponseRedirect("/home/")
 
 @csrf_exempt
 def search(request):
