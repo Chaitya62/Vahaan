@@ -22,7 +22,7 @@ $("#sample6").keypress(function(e){
             </div>
             </div>
             `
-            $("#regUserDiv").append(regUser);
+            $("#regUserDiv").html(regUser);
 
         })
 
