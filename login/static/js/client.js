@@ -13,7 +13,7 @@ $(document).ready(function () {
   
     </span>
     <span class="mdl-list__item-secondary-content">
-    ${new Date(data.startDate).toDateString()}
+    ${new Date(data.endDate).toDateString()}
     </span>
     </li>`
 

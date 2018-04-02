@@ -5,4 +5,4 @@ class PUCSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model =  PUC
-		fields = ('startDate', 'months', 'done')
+		fields = ('startDate', 'months', 'done', 'endDate')
