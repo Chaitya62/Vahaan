@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const url = "http://localhost:8000/puc/get/"
+    const url = "http://thedisappointmentpanda.fun/puc/get/"
     $('#reg_number').html(getCookie('reg_no'))
 
     $.post(url, { 'vehicle_id': getCookie('vehicle_id') }, function (d, status) {
