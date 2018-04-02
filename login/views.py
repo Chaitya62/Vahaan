@@ -96,18 +96,16 @@ class Login(View):
 
 			set_cookie(response, 'isAdmin', 'false')
 
-
-			print("I WAS HERE")
 			request.session['isAdmin'] = False
 
 			return response
 		else:
 
+			request.session['isAdmin'] = True
 			response = HttpResponseRedirect('/home/')
-
 			set_cookie(response, 'isAdmin', 'true')
 
-			request.session['isAdmin'] = True
+			
 			
 
 

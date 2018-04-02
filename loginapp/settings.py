@@ -29,9 +29,6 @@ ALLOWED_HOSTS = [
 	'139.59.46.229',
 	'localhost',
 	'thedisappointmentpanda.fun',
-    'd9bfd181.ngrok.io',
-    'eed1c029.ngrok.io',
-    '59532f6a.ngrok.io',
 ]
 
 
