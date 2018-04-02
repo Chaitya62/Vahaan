@@ -1,11 +1,12 @@
-![image](https://img.shields.io/travis/edoburu/django-project-template/master.svg?branch=master)
-![image](https://img.shields.io/codecov/c/github/edoburu/django-project-template/master.svg)
   
 
 Vahaan
 =======================
 
-This project template creates a Django 2.0 project with a base set of applications
+![image](https://img.shields.io/travis/edoburu/django-project-template/master.svg?branch=master) ![image](https://img.shields.io/codecov/c/github/edoburu/django-project-template/master.svg)
+
+
+A webased system that help you pay for tolls before hand and automatically notifies when your PUC (pollution under control is expired). It sends sms notification for PUC renewal.
 
 Features
 ---------
@@ -19,6 +20,9 @@ Application Features:
 * vehicle users can look for his PUC renewals
 * vehicle users recieve an sms when PUC is going to/is expired
 * vehicle users can view his tolls passing and can pay from there
+
+Website is live at [here]()
+
 
 Apps Made:
 
@@ -57,12 +61,10 @@ Contributer
 * [Chaitya Shah](https://github.com/Chaitya62)
 * [Jigar Wala](https://github.com/JigarWala)
 * [Ankit Mani](https://github.com/Ankit-22)
-License
--------
+
 
 # Video 
  
 The video is [here](./screencast.mp4)
 
-Describe project license here.
 
