@@ -21,8 +21,53 @@ Application Features:
 * vehicle users recieve an sms when PUC is going to/is expired
 * vehicle users can view his tolls passing and can pay from there
 
-Website is live at [here]()
+Installation
+--------
 
+First install requirements using 
+```
+pip install -r requirements
+```
+
+Then apply all the migrations using 
+
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+Create a super user to enter superadmin at `/admin/`
+
+```
+
+python3 manage.py createsuperuser
+
+```
+Runserver at `port: 8000` using
+
+```
+
+python3 manage.py runserver
+
+```
+
+
+
+Demo
+--------
+Website is live [here](http://thedisappointmentpanda.fun/login/)
+
+- Vehicle login Credentials 
+
+ **username** - testuser1
+ 
+ **password** - testing123
+ 
+- Admin login Credentials
+
+ **username** - testuser
+ 
+ **password** - testing123
 
 Apps Made:
 
