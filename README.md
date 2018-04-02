@@ -68,6 +68,8 @@ Website is live [here](http://thedisappointmentpanda.fun/login/)
  **username** - testuser
  
  **password** - testing123
+ 
+ **Note**: In admin system search for **reg_no: MH-07-246** for looking at the features.
 
 Apps Made:
 
