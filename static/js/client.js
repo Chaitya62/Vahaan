@@ -43,8 +43,18 @@ $(document).ready(function () {
                 "date": "2018-04-18",
                 "consumed": false
             }
+
         ] */
+
+       
+
         function getTemplate(ticket){
+             var vew = '';
+
+        if(getCookie('isAdmin') === 'true'){
+            var vew = `<a href="/consume/${ticket.toll.id}" class="btn btn-primary" style="position: relative;right:0px;">Consume</a>`;
+        }
+            
             return ` 
             <li class="mdl-list__item">
             <div class="card mt-4" style="width:100%">
@@ -61,7 +71,7 @@ $(document).ready(function () {
             <p class="card-text">
             ${ticket.date}
             </p>
-            <a href="/toll/${ticket.toll.id}" class="btn btn-primary" style="position: relative;right:0px;">View</a>
+            ${vew}
             </div>
             </div>
             </li>`

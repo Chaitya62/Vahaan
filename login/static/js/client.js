@@ -51,7 +51,7 @@ $(document).ready(function () {
         function getTemplate(ticket){
              var vew = '';
 
-        if(getCookie('isAdmin')){
+        if(getCookie('isAdmin') === 'true'){
             var vew = `<a href="/consume/${ticket.toll.id}" class="btn btn-primary" style="position: relative;right:0px;">Consume</a>`;
         }
             
