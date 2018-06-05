@@ -10,6 +10,8 @@ Vahaan
 A web-based system that help you pay for tolls before hand and automatically notifies when your PUC (pollution under control is expired). It sends sms notification for PUC renewal.
 
 
+**fun-fact:** _Vahaan_ is hindi for vehicle
+
 Features
 ---------
 
