@@ -26,4 +26,4 @@ social-auth-app-django==2.1.0
 social-auth-core==1.7.0
 stripe==1.79.1
 tqdm==4.19.9
-urllib3==1.22
+urllib3==1.26.5
