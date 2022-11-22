@@ -10,7 +10,7 @@ djangorestframework==3.7.7
 idna==2.6
 jsonfield==2.0.2
 oauthlib==2.0.7
-Pillow==5.0.0
+Pillow==9.3.0
 psycopg2-binary==2.7.4
 PyJWT==1.6.1
 PyQRCode==1.2.1
